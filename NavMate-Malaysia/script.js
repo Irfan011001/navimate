@@ -1,6 +1,6 @@
 const $=id=>document.getElementById(id), KL={lat:3.139,lon:101.6869,name:"Kuala Lumpur"};
 let start={...KL},dest=null,routes=[],chosen=0,line=null,nearLayer=null,alertLayer=null,watch=null,nearType="fuel",filter="flood",stepNo=0;
-const map=L.map("map").setView([KL.lat,KL.lon],12);L.control.zoom({position:"bottomright"}).addTo(map);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap contributors"}).addTo(map);
+const map=L.map("map",{zoomControl:false}).setView([KL.lat,KL.lon],12);L.control.zoom({position:"bottomright"}).addTo(map);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap contributors"}).addTo(map);
 const sayStatus=(s)=>$("status").textContent=s, safe=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function marker(lat,lon,color,label){return L.marker([lat,lon],{icon:L.divIcon({className:"",html:`<b style="display:grid;place-items:center;background:${color};color:white;border:2px solid white;border-radius:50%;width:25px;height:25px">${label}</b>`,iconSize:[25,25],iconAnchor:[12,12]})}).addTo(map)}
 async function search(q){let u=new URL("https://nominatim.openstreetmap.org/search");u.search=new URLSearchParams({q:q+", Malaysia",format:"jsonv2",limit:5,countrycodes:"my"});let r=await fetch(u);if(!r.ok)throw Error("Place search unavailable");return r.json()}

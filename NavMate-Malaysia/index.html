@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NavMate Malaysia</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="style.css"></head>
-<body><a class="skip" href="#planner">Skip to planner</a><header><a class="brand" href="#">🧭 NavMate <b>Malaysia</b></a><div class="settings-wrap">
+<body><a class="skip" href="#planner">Skip to planner</a><header><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-name">NavMate</span><span class="brand-country">MALAYSIA</span></a><div class="settings-wrap">
 <button id="settingsToggle" class="settings-toggle" type="button" aria-label="Open settings" aria-expanded="false" aria-controls="settingsPanel" title="Settings">⚙</button>
 <div id="settingsPanel" class="settings-panel" hidden>
 <div class="settings-heading"><strong>Settings</strong><button id="settingsClose" class="settings-close" type="button" aria-label="Close settings">×</button></div>
@@ -11,7 +11,7 @@
 <div class="settings-group"><span class="settings-label">Appearance</span>
 <button id="darkMode" type="button" aria-pressed="false">Dark mode</button></div>
 </div></div></header>
-<main><aside><h1>Where to <span>next?</span></h1><p class="muted">Smarter journeys around Malaysia</p>
+<main><aside><div class="eyebrow"><span></span> YOUR LOCAL DRIVE COMPANION</div><h1>Let's get you<br><span>moving.</span></h1><p class="muted">Plan a smoother journey around Malaysia.</p>
 <section id="planner"><label for="from">From</label><input id="from" value="Kuala Lumpur" autocomplete="off"><div id="fromSuggest" class="suggest"></div>
 <label for="to">To</label><input id="to" placeholder="Search destination" autocomplete="off"><div id="toSuggest" class="suggest"></div>
 <div class="row"><button id="locate">◎ Use my location</button><button id="find" class="primary">Find routes</button></div>
@@ -25,6 +25,6 @@
 <section id="tollPanel"><h2>Estimated toll cost</h2><p class="fine">Indicative planning estimate only. Actual tolls vary by highway, entry/exit, vehicle class and route.</p><p><b id="tollEstimate">Set a route to estimate.</b></p><label for="vehicleClass">Vehicle class</label><select id="vehicleClass"><option value="1">Class 1 — private car</option><option value="2">Class 2 — 2-axle, 5/6 wheels</option><option value="3">Class 3 — 3+ axles</option><option value="motorcycle">Motorcycle (usually toll-free on many highways)</option></select><button id="estimateToll">Estimate toll</button></section>
 <section><h2>AI Travel Assistant</h2><p class="fine">Prototype assistant with local travel tips. It does not call a live AI model or access official traffic/flood feeds.</p><div id="assistantLog" class="assistant-log" aria-live="polite">Hi! Ask about your route, trip duration, nearby services or road safety.</div><label for="assistantInput">Your question</label><input id="assistantInput" placeholder="e.g. What should I prepare for this trip?"><button id="askAssistant" class="primary">Ask assistant</button></section>
 <p class="fine">Map © OpenStreetMap contributors · Routing by OSRM</p></aside>
-<div class="mapbox"><div id="map" role="application" aria-label="Interactive map"></div><button id="recenter" class="recenter">◎ Recenter</button></div></main>
+<div class="mapbox"><div id="map" role="application" aria-label="Interactive map"></div><div class="map-label"><span class="map-label-dot"></span><span>MAP VIEW</span><strong>Malaysia</strong></div><button id="recenter" class="recenter">◎ Recenter</button></div></main>
 <dialog id="dialog"><form id="reportForm"><h2>Report a road issue</h2><label for="kind">Type</label><select id="kind"><option value="flood">Flood / standing water</option><option value="pothole">Pothole</option><option value="accident">Accident</option><option value="closure">Road closure</option><option value="obstacle">Other hazard</option></select><label for="description">Description</label><textarea id="description" maxlength="300" required></textarea><label for="photo">Photo (optional, max 1.5 MB)</label><input id="photo" type="file" accept="image/*" capture="environment"><p class="fine">Do not take photos while driving. Reports are stored on this device only.</p><button class="primary">Submit report</button><button type="button" id="close">Cancel</button></form></dialog>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="script.js"></script></body></html>
